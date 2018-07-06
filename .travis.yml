@@ -17,5 +17,6 @@ deploy:
   region: eu-central-1
   app: qbAPI
   env: api-dev
+  bucket_name: elasticbeanstalk-eu-central-1-233816796838
   on:
     branch: master
