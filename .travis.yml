@@ -2,11 +2,20 @@ dist: trusty
 language: node_js
 service_name: travis-pro
 node_js:
-  - "8"
-
+- '8'
 cache:
   directories:
-    - "node_modules"
+  - node_modules
 script:
-  - yarn lint
-  - npm test
+- yarn lint
+- npm test
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: AKIAIE4NIBVBAKOTWSQQ
+  secret_access_key:
+    secure: XHzSLNDVPaGUkcXy1oG/xcsw+qePIsSKvDvvFCM3jEDB752fLr1rWfAmBXAiAVAMfCNK2jm1ygiVc1LznmRUwg5w0pp01Bze3qamtmVAInBwo1/OyTT7xCjWw9chY/rzWUoYbsDB6F7ahj8n3RoCSk6xngpIMc93H4vDOdF1G8WGZq38JirRRvxfrOE+FkzYasBB150GiUUVFUGsjBHHPuUvewDvBoL8+2Z4RF1qTvwYvl0eLgfjwhuWIlse5jtcdDEzZeP3i7Z8YAzdWbbvDo0WxgarabZDvnALiU00r9zk4HDrhbmNA6s2WyS8xN7UdZCzNS05GKeO+2fg4ojl7fzn4T6xdWRXAF6J679o7rltz4aemRl9bmXd8hOX13foMNSJwwR5DgMECptfgrjCR5jxSsAz5dCn7pKgB3q5ajpvFV/v1Nvu5aP6oblcGFI6TrXz1FWlhqQ9ZKX2klspWXvsFPvMVddiFz0uzOCfW13JWzA2EQ0SEypbYTOuYp9i/wbLLV1zeJTHYfKLbLpEiQ8lEVGPyLtumQVl73p4i6DVXUs/FadJ+ZSW6dARvpXk9lft2CGcgE1eHctTcd2U/1f6Tui0YesqUgKdJmhqlxGg4/DUv9Az56j9cQ5rT3Su8psq4xddAfgULaE5IHGcCTrsEzURLZRO4+fcZ6wVoS8=
+  region: eu-central-1
+  app: qbAPI
+  env: api-dev
+  on:
+    branch: master
